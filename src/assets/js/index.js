@@ -9,7 +9,7 @@ const store = new Vuex.Store({
   },
   actions: {
     postAdmin({ commit }, payload) {
-      var url = `http://10.201.80.73/search`
+      var url = 'http://10.201.80.73/search'
       axios.post(url, {
         query: '柯文哲',
       }).then((response) => {

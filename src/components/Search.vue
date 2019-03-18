@@ -6,14 +6,11 @@
         <p>Search</p>
       </button>
     </div>
-
-    <div id="other">
-      <div class="but_left">
-        <button><</button>
-      </div>
-      <div id="content_box">
-        <h1 class="title">BM25</h1>
-        <div class="content">
+    <div id="Box">
+      <!-- Original -->
+      <div id="Original">
+        <h1 class="title">Original</h1>
+        <div id="content_box">
           <h1 class="ContentTitle">標題</h1>
           <div class="date">2019-02-15</div>
           <p class="text">
@@ -22,43 +19,54 @@
           </p>
         </div>
       </div>
-      <div id="content_box">
-        <h1 class="title">BM25</h1>
-        <div class="content">
-          <h1 class="ContentTitle">標題</h1>
-          <div class="date">2019-02-15</div>
-          <p class="text">
-            內文內文
-            <span>內文內文</span>內文內文
-          </p>
-        </div>
-      </div>
-      <div id="content_box">
-        <h1 class="title">BM25</h1>
-        <div class="content">
-          <h1 class="ContentTitle">標題</h1>
-          <div class="date">2019-02-15</div>
-          <p class="text">
-            內文內文
-            <span>內文內文</span>內文內文
-          </p>
-        </div>
-      </div>
-      <div class="but_right">
-        <button>></button>
-      </div>
-    </div>
-    <!-- Original -->
-    <div id="Original">
-      <h1 class="title">Original</h1>
-      <div id="content_box">
-        <div class="content">
-          <h1 class="ContentTitle">標題</h1>
-          <div class="date">2019-02-15</div>
-          <p class="text">
-            內文內文
-            <span>內文內文</span>內文內文
-          </p>
+      <div id="other">
+        <div class="content_box">
+          <div class="title">
+            <h1 class="">BM25</h1>
+            <h1 class="">BM25</h1>
+            <h1 class="">BM25</h1>
+            <h1 class="">BM25</h1>
+          </div>
+          <div class="content">
+            <div class="but_box lefe">
+              <button><</button>
+            </div>
+            <div class="content_text">
+              <h1 class="ContentTitle">標題</h1>
+              <div class="date">2019-02-15</div>
+              <p class="text">
+                內文內文
+                <span>內文內文</span>內文內文
+              </p>
+            </div>
+            <div class="content_text">
+              <h1 class="ContentTitle">標題</h1>
+              <div class="date">2019-02-15</div>
+              <p class="text">
+                內文內文
+                <span>內文內文</span>內文內文
+              </p>
+            </div>
+            <div class="content_text">
+              <h1 class="ContentTitle">標題</h1>
+              <div class="date">2019-02-15</div>
+              <p class="text">
+                內文內文
+                <span>內文內文</span>內文內文
+              </p>
+            </div>
+            <div class="content_text">
+              <h1 class="ContentTitle">標題</h1>
+              <div class="date">2019-02-15</div>
+              <p class="text">
+                內文內文
+                <span>內文內文</span>內文內文
+              </p>
+            </div>
+            <div class="but_box right">
+              <button @click="right()">></button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -77,6 +85,10 @@ export default {
   mounted () {
     this.$store.dispatch('postAdmin')
   },
+  methods:{
+    right() {}
+
+  }
 };
 </script>
 
