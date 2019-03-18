@@ -44,7 +44,6 @@ body
       // height: 96%
       margin: 3% 2%
       display: flex
-      // flex-wrap: wrap
       #Original
         min-width: 20%
         min-height: 100%
@@ -84,39 +83,49 @@ body
         .content_box
           width: 30vw
           height: 5vh
-          .title
-            width: 100vw
-            margin-left: 30px
+          // background-color: #000
+          // -webkit-clip-path: inset(-150% -120% 15% 10%)
+          .content_title
+            width: 100%
+            margin-left: 76px
             display: flex
+            position: absolute
             h1
               margin: 0px 0px 1px 0px
-              width: 24.7vw
+              width: 24.8vw
               font-size: 23px
+              // margin-left: px
           .content
             display: flex
             width: 100vw
             height: 72vh
             background-color: #f9f9f9
-            .content_text
-              width: 30vw
-              height: 70vh
-              margin-top: 0.7vh
-              .ContentTitle
-                font-size: 20px
-                color: #2286fd
-                margin-bottom: 10px
-                // background-color: #000
-              .date
-                font-size: 14px
-                color: #4a4a4a
-                margin-bottom: 10px
-              .text
-                font-size: 14px
-                color: #4a4a4a
-                line-height: 14px
-                margin-bottom: 12px
-                span
-                  color: #f5a623
+            margin-top: 30px
+            .move
+              display: flex
+              position: absolute
+              margin-left: 76px
+              .content_text
+                width: 24.8vw
+                height: 70vh
+                margin-top: 0.7vh
+                // margin-left: 10px
+                .ContentTitle
+                  font-size: 20px
+                  color: #2286fd
+                  margin-bottom: 10px
+                  // background-color: #000
+                .date
+                  font-size: 14px
+                  color: #4a4a4a
+                  margin-bottom: 10px
+                .text
+                  font-size: 14px
+                  color: #4a4a4a
+                  line-height: 14px
+                  margin-bottom: 12px
+                  span
+                    color: #f5a623
             .but_box
               width: 30px
               line-height: 70vh
@@ -130,3 +139,5 @@ body
             .right
               position: absolute
               right: 0px
+            .left
+              z-index: 100
