@@ -1,8 +1,8 @@
 {
-  "name": "search",
+  "name": "aisearch",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "廖敏男 <minnan0328@gmail.com>",
+  "author": "minnan0328 <minnan0328@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",

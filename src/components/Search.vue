@@ -40,7 +40,7 @@
                   <span>內文內文</span>內文內文
                 </p>
               </div>
-              <div class="content_text">
+              <div id="sss" class="content_text">
                 <h1 class="ContentTitle">標題</h1>
                 <div class="date">2019-02-15</div>
                 <p class="text">
