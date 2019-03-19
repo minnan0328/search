@@ -1,8 +1,8 @@
 <template>
   <div class="Search">
     <div id="InpuText">
-      <input type="text" name="SearchText" placeholder="News Search">
-      <button>
+      <input type="text" name="SearchText" placeholder="News Search" v-model="searchText">
+      <button @click="seacch()">
         <p>Search</p>
       </button>
     </div>
@@ -10,13 +10,14 @@
       <!-- Original -->
       <div id="Original">
         <h1 class="title">Original</h1>
-        <div id="content_box">
-          <h1 class="ContentTitle">標題</h1>
-          <div class="date">2019-02-15</div>
-          <p class="text">
-            內文內文
-            <span>內文內文</span>內文內文
-          </p>
+        <div id="content_box" >
+          <div v-for="(items,index) in this.model1">
+            <div v-for="item in items" :id="index">
+              <h1 class="ContentTitle" v-text="item.title" v-if="item.title"></h1>
+              <div class="date" v-text="item.date" v-if="item.date"></div>
+              <p class="text" v-text="item.content" v-if="item.content"></p>
+            </div>
+          </div>
         </div>
       </div>
       <div id="other">
@@ -81,17 +82,37 @@ export default {
   name: "Search",
   data() {
     return {
-      search:'',
+      searchText:'',
+      model1:[],
       isRight: true,
       isLeft: false,
       nub: 0
     };
   },
-  mounted () {
-    this.$store.dispatch('getSearchInfo')
-    this.$store.dispatch('postsearch')
-  },
+  mounted () {},
+  computed: mapState({
+    searchDtat: state => state.search
+  }),
   methods:{
+    seacch(){
+      this.$store.dispatch('postsearch',this.searchText)
+      this.seacchComputed()
+      // console.log(this.searchText)
+      // console.log(this.searchDtat)
+    },
+    seacchComputed(){
+      for(var items in this.searchDtat.model1){
+        this.model1 = this.searchDtat.model1
+        console.log(items)
+        // this.model1 = {
+        //   name: this.searchDtat.model1.name,
+        //   results: this.searchDtat.model1.results,
+        //   total: this.searchDtat.model1.total
+        // }
+        // console.log(this.model1)
+      }
+      console.log(this.model1)
+    },
     right() {
       var box = document.getElementsByClassName("move")[0];
       var title = document.getElementsByClassName("content_title")[0];

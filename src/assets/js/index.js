@@ -9,30 +9,22 @@ const store = new Vuex.Store({
   },
   actions: {
     postsearch({ commit }, payload) {
-      var url = 'http://10.201.80.73/search'
+      var url = 'http://10.201.121.14:8081/search'
+      // console.log(payload)
       axios.post(url, {
-        query: '柯文哲',
+        query: payload,
       }).then((response) => {
-        console.log(response)
+        // console.log(response.data)
+        commit('setIndex', response.data)
       }).catch((error) => {
         console.log(error)
       })
-    },
-      getSearchInfo({ commit}, payload) {
-        var url = '../../../static/data/search.json'
-        axios.get(url)
-          .then((res) => {
-            console.log(res.data)
-              // commit('setAllConfig', payloads)
-          }).catch((error) => {
-              console.log(error)
-          })
-      },
+    }
   },
   mutations: {
-    // setIndex: (state, payload) => {
-    //   state.search = payload
-    // }
+    setIndex: (state, payload) => {
+      state.search = payload
+    }
   }
 })
 export default store
