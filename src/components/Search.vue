@@ -103,15 +103,7 @@ export default {
     seacchComputed(){
       for(var items in this.searchDtat.model1){
         this.model1 = this.searchDtat.model1
-        console.log(items)
-        // this.model1 = {
-        //   name: this.searchDtat.model1.name,
-        //   results: this.searchDtat.model1.results,
-        //   total: this.searchDtat.model1.total
-        // }
-        // console.log(this.model1)
       }
-      console.log(this.model1)
     },
     right() {
       var box = document.getElementsByClassName("move")[0];
