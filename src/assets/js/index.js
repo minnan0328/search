@@ -5,10 +5,10 @@ import axios from 'axios'
 Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
-    index: {}
+    search: {}
   },
   actions: {
-    postAdmin({ commit }, payload) {
+    postsearch({ commit }, payload) {
       var url = 'http://10.201.80.73/search'
       axios.post(url, {
         query: '柯文哲',
@@ -18,10 +18,20 @@ const store = new Vuex.Store({
         console.log(error)
       })
     },
+      getSearchInfo({ commit}, payload) {
+        var url = '../../../static/data/search.json'
+        axios.get(url)
+          .then((res) => {
+            console.log(res.data)
+              // commit('setAllConfig', payloads)
+          }).catch((error) => {
+              console.log(error)
+          })
+      },
   },
   mutations: {
     // setIndex: (state, payload) => {
-    //   state.index = payload
+    //   state.search = payload
     // }
   }
 })
