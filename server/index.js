@@ -45,8 +45,6 @@ app.post('/search', function(req,res) {
         else resolve(body)
       })
     }).then((result) => {
-      console.log(result.length)
-      console.log(result)
       res.send(result)
     }).catch((error) => {
       console.log(error)
