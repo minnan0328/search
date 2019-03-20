@@ -9,11 +9,14 @@ const store = new Vuex.Store({
   },
   actions: {
     postsearch({ commit }, payload) {
+      /* 連接 API post 搜尋內容 */
       var url = 'http://localhost:8081/search'
       axios.post(url, {
         query: payload.search,
       }).then((response) => {
+        /* 暫存 response.data 至 state.search */
         commit('setIndex', response.data)
+        /* Callback  searchComputed() */
         payload.searchCallback()
       }).catch((error) => {
         console.log(error)

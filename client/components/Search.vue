@@ -74,20 +74,27 @@ export default {
       })
     },
     searchComputed(){
+      /* 重新搜尋時將變數恢復原本預設狀態 */
       this.OtherModel = []
       this.tempData = []
       this.nub = 0
       this.isRight = true,
       this.isLeft = false
+
+      /* 將 model1 data 獨立存入 Original 陣列 */
       for(var items in this.searchDtat.model1){
         this.Original[0] = this.searchDtat.model1
       }
+
+      /* 將 model1 data 過濾 剩下 data 存入 OtherModel 陣列 */
       for(var items in this.searchDtat){
         if(items != 'model1'){
           this.OtherModel[this.nub] = this.searchDtat[items]
           this.nub = this.nub +1
         }
       }
+
+      /* 判斷其中一個陣列是否有 data 才顯示資料，因為搜尋引擎不一定每個 modal 都有資料 */
       if(this.Original.length > 0 || this.OtherModel.length > 0){
         this.isShowData = true
       }else{
@@ -96,10 +103,12 @@ export default {
     },
     right() {
       if(this.isRight === true){
+        /* 點擊右邊時，將 this.OtherModel 第一筆資料暫存至 this.tempData，每次都存到陣列最前面 */
         this.tempData.unshift(this.OtherModel[0])
+        /* 點擊右邊時，將 this.OtherModel移除第一筆資料 */
         this.OtherModel.shift()
         this.isLeft = true
-
+        /* 當 this.OtherModel 陣列成員剩兩筆時，則不能點擊右邊按鈕*/
         if(this.OtherModel.length === 2){
           this.isRight = false
         }
@@ -107,9 +116,12 @@ export default {
     },
     left() {
       if(this.isLeft === true){
+        /* 點擊左邊時，將 this.tempData 第一筆資料加回去 至 this.OtherModel 陣列最前面 */
         this.OtherModel.unshift(this.tempData[0])
+        /* 點擊左邊時，將 this.tempData 移除第一筆資料 */
         this.tempData.shift()
         this.isRight = true
+        /* 當 this.tempData 陣列成員 0 筆時，則不能點擊左邊按鈕 */
         if(this.tempData.length === 0){
           this.isLeft = false
         }
