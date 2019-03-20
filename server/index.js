@@ -1,6 +1,5 @@
 var express = require('express')
 var request = require('request')
-var axios = require('axios')
 var fs = require('fs')
 var path = require('path')
 var createError = require('http-errors')
