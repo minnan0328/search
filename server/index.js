@@ -34,8 +34,7 @@ app.use(
 app.post('/search', function(req,res) {
   var str = JSON.stringify(req.body)
   var data = JSON.parse(str)
-  // var result = {}
-    var queryisShow = new Promise((resolve, reject) => {
+    new Promise((resolve, reject) => {
       request.post({
           url: 'http://10.201.80.73/search',
           json: true,
@@ -44,12 +43,13 @@ app.post('/search', function(req,res) {
         }, (error, res, body) => {
         if (error) reject(error)
         else resolve(body)
-        // console.log(`statusCode: ${res.statusCode}`)
-        // console.log(res.body)
       })
     }).then((result) => {
+      console.log(result.length)
       console.log(result)
       res.send(result)
+    }).catch((error) => {
+      console.log(error)
     })
 })
 app.set('dist', path.join(__dirname, '../dist'))
@@ -84,12 +84,12 @@ app.use(function (err, req, res, next) {
     message: err.message,
     error: err
   })
-  // res.render('error')
 })
 
 // 監聽
-app.listen(8081, function () {
-  console.log('success listen...8081')
+var port = process.env.PORT || 8081
+app.listen(port, function () {
+  console.log(`success listen...${port}`)
 })
 
 module.exports = app

@@ -9,13 +9,12 @@ const store = new Vuex.Store({
   },
   actions: {
     postsearch({ commit }, payload) {
-      var url = 'http://10.201.121.14:8081/search'
-      // console.log(payload)
+      var url = 'http://localhost:8081/search'
       axios.post(url, {
-        query: payload,
+        query: payload.search,
       }).then((response) => {
-        // console.log(response.data)
         commit('setIndex', response.data)
+        payload.searchCallback()
       }).catch((error) => {
         console.log(error)
       })
