@@ -29,7 +29,7 @@
             </div>
             <div class="move">
               <div class="content_text" v-for="items in this.OtherModel">
-                <div v-for="(item,index) in items.results" :id="index">
+                <div v-for="(item,index) in items.results" :id="item.score">
                   <h1 class="ContentTitle" v-text="item.title" v-if="item.title"></h1>
                   <div class="date" v-text="item.date" v-if="item.date"></div>
                   <p class="text" v-text="item.content" v-if="item.content"></p>

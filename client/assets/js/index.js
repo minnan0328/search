@@ -15,7 +15,7 @@ const store = new Vuex.Store({
         query: payload.search,
       }).then((response) => {
         /* 暫存 response.data 至 state.search */
-        console.log(response)
+        // console.log(response)
         commit('setIndex', response.data)
         /* Callback  searchComputed() */
         payload.searchCallback()
